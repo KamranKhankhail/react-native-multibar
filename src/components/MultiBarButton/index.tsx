@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Animated, StyleProp, TouchableOpacity, ViewStyle } from 'react-native';
+import { View, Animated, StyleProp, TouchableOpacity, ViewStyle } from 'react-native';
 
 import { MultiBarContext } from '../../context';
 import { styles } from './Styles';
@@ -11,11 +11,11 @@ type Props = {
 };
 
 export const MultiBarButton: React.FC<Props> = ({
-  children,
-  rotationDegrees,
-  style,
-  onPress
-}) => {
+                                                  children,
+                                                  rotationDegrees,
+                                                  style,
+                                                  onPress
+                                                }) => {
   const { extrasVisible, setExtrasVisible } = React.useContext(MultiBarContext);
   const animated = React.useRef<Animated.Value>(new Animated.Value(0)).current;
 
@@ -42,10 +42,12 @@ export const MultiBarButton: React.FC<Props> = ({
   });
 
   return (
-      <Animated.View
-        style={[styles.contentContainer, style]}
-      >
-        {children}
-      </Animated.View>
+      <View style={styles.mainContainer}>
+        <Animated.View
+            style={[styles.contentContainer, style]}
+        >
+          {children}
+        </Animated.View>
+      </View>
   );
 };
