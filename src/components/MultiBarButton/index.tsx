@@ -42,19 +42,10 @@ export const MultiBarButton: React.FC<Props> = ({
   });
 
   return (
-    <TouchableOpacity
-      activeOpacity={0.9}
-      onPress={handlePress}
-    >
       <Animated.View
-        style={[styles.contentContainer, {
-          transform: [
-            { rotateZ }
-          ]
-        }, style]}
+        style={[styles.contentContainer, style]}
       >
         {children}
       </Animated.View>
-    </TouchableOpacity>
   );
 };
